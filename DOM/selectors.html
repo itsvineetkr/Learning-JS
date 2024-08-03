@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1 id="name" class="title">Vineet Kumar</h1>
+    <h3 id="disc1" class="sub-heading">Learning about Document Object Manipulation <span class="capital-sub-heading" style="display: none;">DOM</span> </h3>
+    <h3 id="disc2" class="sub-heading">This comes under JavaScript and is taught by Hitesh Choudhary</h3>
+    <input type="text">
+    
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>
+    
+    
+    <script>
+        const title = document.getElementById("name")
+        title.setAttribute('class', 'title name')
+        title.style.backgroundColor = "green"
+
+        const body = document.getElementsByTagName("body")[0]
+        body.style.backgroundColor = "black"
+        body.style.color = "white"
+
+        const dics = document.getElementsByClassName("sub-heading")
+        console.table([dics[0].textContent, dics[0].innerText, dics[0].innerHTML])
+
+        // textContent: will give all the content no matter it is displayed or not
+        // innerText: will give only the displaying part of content
+        // innerHTML: this will give all the content including inner html tags and all
+
+        /*
+        Query Selector:
+        */
+
+        const span = document.querySelector(".capital-sub-heading")
+        span.style.display = 'inline'
+
+        const h3 = document.querySelectorAll(".sub-heading")
+        // h3: NodeList
+        console.log(h3);
+        h3Array = Array.from(h3)
+        h3Array.map(
+            (item) => {
+                item.style.backgroundColor = "purple"
+                return item
+            }
+        )
+        
+        const input = document.querySelector("input[type = 'text']")
+
+        // Parent child relations
+
+        const parent = document.querySelector(".parent")
+        const children = parent.children
+        const first = parent.firstElementChild
+        const last = parent.lastElementChild
+
+        // console.log(children) HTML Collection
+
+        const child = document.querySelector(".day")
+        const parentFromChild = child.parentElement
+        // console.log(parentFromChild) NodeElement
+        const child2 = child.nextElementSibling
+
+
+
+    </script>
+</body>
+</html>

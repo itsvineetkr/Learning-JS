@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .image{
+            width: 100px;
+        }
+    </style>
+    <ul class="wrapper">
+        <li class="list"><img src="https://images.pexels.com/photos/12646557/pexels-photo-12646557.jpeg" alt="" class="image"></li>
+        <li class="list"><img src="https://images.pexels.com/photos/22027141/pexels-photo-22027141/free-photo-of-farmer-in-hat-sitting-on-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="image"></li>
+        <li class="list"><img src="https://images.pexels.com/photos/12646557/pexels-photo-12646557.jpeg" alt="" class="image"></li>
+        <li class="list"><img src="https://images.pexels.com/photos/12646557/pexels-photo-12646557.jpeg" alt="" class="image"></li>
+        <li class="list"><img src="https://images.pexels.com/photos/12646557/pexels-photo-12646557.jpeg" alt="" class="image"></li>
+    </ul>
+</body>
+<script>
+    // event listeners: 
+    /*
+    Format
+    document.querySelector(".list").addEventListener("What Event", callback Function with event arg, true/false)
+
+    Ye true false is basically for selecting whether to go for bubbling or capturing, these are event propagation types.
+    bubbling me andar se bahar aur capturing me bahar se andar. 
+    partent element me lagao {ul} <-> {li> img> ....} isko interchange kar doge agar ul pe lagaoge
+    {ul} <-> {{img>...} <-> {li}} ye tab hoga jab ul aur li dono pe lagaoge
+    
+    to stop propagation use event.stopPropagation()
+    */
+   
+    document.querySelector('.wrapper').addEventListener("click", function(event){
+        console.log("UL CLICKED");
+    })
+    document.querySelector('.list').addEventListener("click", function(event){
+        console.log("LI CLICKED");
+    })
+    document.querySelector('.image').addEventListener("click", function(event){
+        console.log("IMG CLICKED");
+    })
+
+    // removing element:
+
+    document.querySelector('.wrapper').addEventListener("click", function(event){
+        if (event.target.tagName === 'IMG'){
+            event.target.parentNode.remove()
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blog2{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // ADDING 
+
+    const div = document.createElement("div")
+    div.className = "heading"
+    div.appendChild(document.createTextNode("Vineet Kumar"))
+    //div.innerHTML = "Vineet Kumar"
+    document.body.appendChild(div)
+
+    const subHeading = document.createElement("p")
+    subHeading.className = "para"
+    subHeading.appendChild(document.createTextNode("Hello How are you dear?"))
+    const heading = document.querySelector(".heading")
+    heading.appendChild(subHeading)
+    
+    const blogs = [
+        "This is a blog and Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias porro quos, ullam odio blanditiis, voluptate harum tempore iure quaerat natus commodi cum molestias!",
+        "This is another blog and Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ",
+        "Blog 3 and i am still here Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias porro quos, ullam ",
+        "Blog 4 and you are still thinking theres any valid thing to read bro? Lorem ipsum dolor sit amet consectetur adipisicing elit"
+    ]
+
+    const blogsDiv = document.createElement("div")
+    blogsDiv.className = "blogs"
+    document.body.appendChild(blogsDiv)
+
+    for (let i = 0; i < blogs.length; i++) {
+        const child = document.createElement("div")
+        child.className = `blog${i+1}`
+        child.appendChild(document.createTextNode(blogs[i]))
+        blogsDiv.appendChild(child)        
+    }
+        
+    // EDITING
+    
+    // editing blog 2 1. with replace 2. with changing content
+
+    const secBlog = document.querySelector(".blog2")
+    const newblog = document.createElement("div")
+    newblog.appendChild(document.createTextNode("New Blog 2 Content!!!"))
+    newblog.className = secBlog.className
+    secBlog.replaceWith(newblog)
+
+    const thirdBlog = document.querySelector(".blog3")
+    thirdBlog.textContent = 'new blog 3 hihihihihihi'
+    // thirdBlog.outerHTML = '<div class = "blog3">new Blog 3 hihihihihihihi</div>'
+    // thirdBlog.textContent = 'whatever you write no matter it is html it self'
+
+    //REMOVING
+
+    const fourth = document.querySelector(".blog4")
+    fourth.remove()
+
+</script>
+</html>
